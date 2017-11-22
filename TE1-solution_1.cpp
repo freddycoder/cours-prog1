@@ -6,7 +6,7 @@
 #include <locale>
 #include <string>
 
-// Ici mesure 1 vaut 0 et est en pouce, ensuite mesure2 vaut 0 et est en Pied. Il existe deux autre type, centimètre et mètre donc tout les types possible sont : 'p', 'P', 'c' et 'm'.
+// Ici mesure1 vaut 0 et est en pouce, ensuite mesure2 vaut 0 et est en Pied. Il existe deux autre type, centimètre et mètre donc tout les types possible sont : 'p', 'P', 'c' et 'm'.
 struct s_deuxMesures { float mesure1 = 0; char type1 = 'p'; float mesure2 = 0; char type2 = 'P'; };
 
 void afficher(std::string texte, bool saut_de_ligne = true);
@@ -23,9 +23,9 @@ int main() {
 	s_deuxMesures mesures;
 	float change_valeur = 0;
 	char change_type = 0;
+	int option;
 	// Lancement du programme.
 	while (true) {
-		int option;
 		afficher("1 Saisir une première mesure en pouce.");
 		afficher("2 Saisir une deuxième mesure en pied.");
 		afficher("3 Afficher la première valeur.");
