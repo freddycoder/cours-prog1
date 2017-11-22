@@ -136,7 +136,7 @@ float convertireEnMetre(float valeur, char type) {
 		valeur = ((valeur * 12) * 2.54) / 100;
 	}
 	else if (type == 'c') {
-		valeur = valeur * 100;
+		valeur = valeur / 100;
 	}
 	return valeur;
 }
