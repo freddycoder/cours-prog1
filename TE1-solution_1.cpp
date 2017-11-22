@@ -29,8 +29,8 @@ int main() {
 		afficher("1 Saisir une première mesure en pouce.");
 		afficher("2 Saisir une deuxième mesure en pied.");
 		afficher("3 Afficher la première valeur.");
-		afficher("4 Afficher la deuxière valeur..");
-		afficher("5 Intercahnger les valeurs.");
+		afficher("4 Afficher la deuxière valeur.");
+		afficher("5 Interchanger les valeurs.");
 		afficher("6 Convertire la première valeur en centimètre.");
 		afficher("7 Convertire la première valeur en mètre.");
 		afficher("8 Ajouter un pouce à la première valeur.");
