@@ -1,7 +1,6 @@
 // TP-note1.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <locale>
 #include <string>
@@ -71,6 +70,7 @@ int main() {
 			break;
 		case(7):
 			mesures.mesure1 = convertireEnMetre(mesures.mesure1, mesures.type1);
+			mesures.type1 = 'm'
 			break;
 		case(8):
 			mesures.mesure1 = ajouterUnPouce(mesures.mesure1, mesures.type1);
