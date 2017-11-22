@@ -70,7 +70,7 @@ int main() {
 			break;
 		case(7):
 			mesures.mesure1 = convertireEnMetre(mesures.mesure1, mesures.type1);
-			mesures.type1 = 'm'
+			mesures.type1 = 'm';
 			break;
 		case(8):
 			mesures.mesure1 = ajouterUnPouce(mesures.mesure1, mesures.type1);
