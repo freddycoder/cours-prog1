@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 struct s_couleur { int maCouleur; int valpha; int vrouge; int vvert; int vbleu; };
@@ -15,7 +16,16 @@ void afficheTableValeurMinMax();
 
 int main()
 {
+	// Utiliser cette ligne pour travailler avec les accents.
 	std::locale::global(std::locale{ "" });
+
+	int x;
+	int n;
+	affiche("Entrer un nombre : ", false);std::cin >> x;
+	affiche("En octal : ", false);std::cout << std::oct << x << std::endl;
+	affiche("En hexadecimale : ",false); std::cout << std::hex << x << std::endl;
+	affiche("Entre une base : ", false); std::cin >> n;
+	std::cout << "En base " << n << " : "<< x << std::setbase(n);
 
 	afficheTableValeurMinMax();
 	while(true) {
@@ -64,10 +74,10 @@ s_couleur entrerUnChiffre() {
 
 void afficheResultat(s_couleur couleur) {
 	affiche("");
-	affiche("Canal alpha : ", false); chiffre(couleur.valpha);
-	affiche("Rouge : ", false); chiffre(couleur.vrouge);
-	affiche("Vert : ", false); chiffre(couleur.vvert);
-	affiche("Bleu : ", false); chiffre(couleur.vbleu);
+	affiche("Canal alpha : \t", false); chiffre(couleur.valpha);
+	affiche("Rouge : \t", false); chiffre(couleur.vrouge);
+	affiche("Vert : \t\t", false); chiffre(couleur.vvert);
+	affiche("Bleu : \t\t", false); chiffre(couleur.vbleu);
 	affiche("");
 }
 
