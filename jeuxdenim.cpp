@@ -10,7 +10,7 @@ void afficher(std::string texte, bool saut_de_ligne = true);
 int main()
 {
 	int option = 1;
-  afficher("\t\t *** Jeux de Nim *** ");
+        afficher("\t\t *** Jeux de Nim *** ");
 	afficher("Le but du jeux est de prendre la dèrnière allumette.\n");
 	
 	while (option != 0) {
@@ -21,7 +21,7 @@ int main()
 		afficher("0. Quitter");
 		afficher("Option : ", false);
 		cin >> option;
-    afficher(""); // Fait un saut de ligne
+                afficher(""); // Fait un saut de ligne
     
     
 		switch (option)
