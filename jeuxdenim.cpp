@@ -80,10 +80,10 @@ int jouerTour(int joueur, int nbAllumette) {
 			choix = 2;
 		}
 		else if (nbAllumette == 7) {
-			choix = 2;
+			choix = 3;
 		}
 		else if (nbAllumette == 8) {
-			choix = 3;
+			choix = 1;
 		}
 		else if (nbAllumette == 9 || nbAllumette == 10) {
 			choix = 1;
