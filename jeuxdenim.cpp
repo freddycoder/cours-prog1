@@ -1,33 +1,37 @@
-// jeuxDeNim.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-void afficher(std::string texte, bool saut_de_ligne = true);
-int jouerTour(int joueur, int nbAllumette);
 void jouerPartieDeuxJoueurs(int joueur1, int joueur2);
+int jouerTour(int joueur, int nbAllumette);
+void afficher(std::string texte, bool saut_de_ligne = true);
 
 int main()
 {
 	int option = 1;
-
+  afficher("\t\t *** Jeux de Nim *** ");
+	afficher("Le but du jeux est de prendre la dèrnière allumette.\n");
+	
 	while (option != 0) {
-		afficher("Choisissez un partie 1 joueur contre l'ordinateur ou deux joueur.");
-		afficher("1 pour deux joueur et 2 pour jouer contre l'ordinateur. 0 pour quitté");
-		cin >> option;
 
+		afficher("Choisir une option : ");
+		afficher("1. Partie deux joueur");
+		afficher("2. Partie contre l'ordinateur");
+		afficher("0. Quitter");
+		afficher("Option : ", false);
+		cin >> option;
+    afficher(""); // Fait un saut de ligne
+    
+    
 		switch (option)
 		{
 		case(0):
 			break;
-		case(1):
+		case(1): // Partie 2 joueur
 			jouerPartieDeuxJoueurs(1, 2);
 			break;
-		case(2):
+		case(2): // Partie contre l'ordinateur
 			jouerPartieDeuxJoueurs(1, 3); // Joueur 3 = ordinateur
 			break;
 		default:
@@ -39,22 +43,36 @@ int main()
 	return 0;
 }
 
-void afficher(std::string texte, bool saut_de_ligne) {
-	switch (saut_de_ligne)
-	{
-	case(false):
-		std::cout << texte;
-		break;
-	default:
-		std::cout << texte << std::endl;
-		break;
+void jouerPartieDeuxJoueurs(int joueur1, int joueur2 ) {
+	int nbAllumette = 21;
+	int choix = 0;
+	int tour = 1;
+
+	while (nbAllumette > 0) {
+		cout << "Tour " << tour << endl;
+		nbAllumette = jouerTour(joueur1, nbAllumette);
+		tour = tour + 1;
+		if (nbAllumette <= 0) {
+			afficher("Le joueur 1 à gagné!\n");
+		}
+		else {
+			cout << "Tour " << tour << endl;
+			nbAllumette = jouerTour(joueur2, nbAllumette);
+			tour = tour + 1;
+			if (nbAllumette <= 0 && joueur2 == 2) {
+				afficher("Le joueur 2 à gagné!\n");
+			} else if (nbAllumette <= 0 && joueur2 == 3) {
+			  afficher("L'ordinateur à gagné!\n");
+			}
+		}
+
 	}
 }
 
 int jouerTour(int joueur, int nbAllumette) {
 	int choix = 0;
 	cout << "Tour du joueur " << joueur << ", le nombre d'allumette restante : " << nbAllumette << endl;
-	if (joueur == 3) {
+	if (joueur == 3) { // *** Section AI ***
 		if (nbAllumette == 5) {
 			choix = 1;
 		}
@@ -86,26 +104,14 @@ int jouerTour(int joueur, int nbAllumette) {
 	return nbAllumette;
 }
 
-void jouerPartieDeuxJoueurs(int joueur1, int joueur2 ) {
-	int nbAllumette = 21;
-	int choix = 0;
-	int tour = 1;
-
-	while (nbAllumette > 0) {
-		cout << "Tour " << tour << endl;
-		nbAllumette = jouerTour(joueur1, nbAllumette);
-		tour = tour + 1;
-		if (nbAllumette <= 0) {
-			afficher("Le joueur 1 à gagné!");
-		}
-		else {
-			cout << "Tour " << tour << endl;
-			nbAllumette = jouerTour(joueur2, nbAllumette);
-			tour = tour + 1;
-			if (nbAllumette <= 0) {
-				afficher("Le joueur 2 à gagné!");
-			}
-		}
-
+void afficher(std::string texte, bool saut_de_ligne) {
+	switch (saut_de_ligne)
+	{
+	case(false):
+		std::cout << texte;
+		break;
+	default:
+		std::cout << texte << std::endl;
+		break;
 	}
 }
